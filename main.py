@@ -9,7 +9,8 @@ import html
 import sys
 
 DEBUG=False
-SOURCE_DIR="/path/to/your/dir/for/alfred-gpt"
+SOURCE_DIR="/Users/raam/Projects/alfred-gpt/"
+RESPONSE_DIR="/Users/raam/Downloads/"
 ENDPOINT = "https://api.openai.com/v1/completions"
 
 HELP = '''
@@ -180,7 +181,7 @@ function showCopiedNotification() {
 </html>
 '''
 
-file_name = f"{SOURCE_DIR}/response_{get_current_date()}_{gen_uuid()}.html"
+file_name = f"{RESPONSE_DIR}/gpt_response_{get_current_date()}_{gen_uuid()}.html"
 
 with open(f"{file_name}", "w") as file:
     file.write(HTML)
@@ -188,5 +189,4 @@ with open(f"{file_name}", "w") as file:
 # Open HTML file 
 command = f"open {file_name}"
 subprocess.run(command, shell=True)
-
 
